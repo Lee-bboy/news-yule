@@ -9,7 +9,7 @@ Page({
    */
   data: {
     newsTitle: '',
-    newsUrl: '',
+    n_url: '',
     newsAuthor: '',
     contentTip: '由于后台接口原因，新闻具体内容无法编辑，只返回了一个新闻链接...'
   },
@@ -18,9 +18,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let { newsUrl } = options
+    let { n_url } = options
+    console.log(n_url);
     request({
-      url: newsUrl
+      url: n_url
     }).then(res => {
       WxParse.wxParse('newsDetailData', 'html', util.getBodyHtml(res), this)
     })
